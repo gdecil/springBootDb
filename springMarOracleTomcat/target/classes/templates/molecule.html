@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Molecule</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="bootstrap.min.css" media="screen"/>
+    <style>
+        .navigation-order{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+  <script src="ngl.js"></script>
+  <script>
+    var stage;
+	NGL.DatasourceRegistry.add(
+		"data", new NGL.StaticDatasource( "mol/" )
+	);	
+    document.addEventListener("DOMContentLoaded", function () {
+      stage = new NGL.Stage("viewport");
+      stage.loadFile("data://pippo.sdf", {defaultRepresentation: true});
+      //path:"//pippo.sdf" data "/"
+      //      http://localhost:8080//mol/pippo.sdf data "/mol/" funziona ugualmente
+      //      http://localhost:8080/mol/pippo.sdf  data "mol/"
+	  
+    });
+  </script>
+  <div id="viewport" style="width:800px; height:800px;"></div>
+</body>
+</html>

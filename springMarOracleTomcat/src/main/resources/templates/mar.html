@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="CodePixar">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Mar</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
+		<!--
+		CSS
+		============================================= -->
+		<link rel="stylesheet" href="/css/linearicons.css">
+		<link rel="stylesheet" href="/css/owl.carousel.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/nice-select.css">
+		<link rel="stylesheet" href="/css/magnific-popup.css">
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/main.css">
+		<script type="text/javascript" src="/jsmol/JSmol.min.js"></script>
+		
+	<script type="text/javascript">	
+		Jmol._isAsync = false;
+		var jmolApplet0; // set up in HTML table, below
+		var s = document.location.search;
+		Jmol._debugCode = (s.indexOf("debugcode") >= 0);	
+		jmol_isReady = function(applet) {
+			document.title = (applet._id + " - Jmol " + Jmol.___JmolVersion)
+			Jmol._getElement(applet, "appletdiv").style.border="1px solid blue"
+		}		
+		var Info = {
+			width: 800,
+			height: 800,
+			debug: false,
+			color: "0xFFFFFF",
+			addSelectionOptions: true,
+			use: "HTML5",   // JAVA HTML5 WEBGL are all options
+			j2sPath: "/jsmol/j2s", // this needs to point to where the j2s directory is.
+			jarPath: "/jsmol/java",// this needs to point to where the java directory is.
+			jarFile: "JmolAppletSigned.jar",
+			isSigned: true,
+			script: "set zoomlarge false;set antialiasDisplay;load http://localhost:8090/molfileJsmol/1 FILTER '2D'; wireframe 0.3; spacefill off;",
+			serverURL: "http://localhost/www/jsmol/php/jsmol.php",
+			readyFunction: jmol_isReady,
+			disableJ2SLoadMonitor: true,
+		    disableInitialConsole: true,
+	 	    allowJavaScript: true
+		}
+		
+		$(document).ready(function() {
+		  $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info))
+		})
+		var lastPrompt=0;
+		function first() {
+		  Jmol.script(jmolApplet0,'load http://localhost:8090/molfileJsmol/1; wireframe 0.3; spacefill off;')
+		  $('#strId').val("1");
+		}
+		function next() {
+		  var nId = $( "#strId" ).val(); //Document.getElementById('strId');
+		  nId++;
+		  Jmol.script(jmolApplet0,'load http://localhost:8090/molfileJsmol/' + nId + '; wireframe 0.3; spacefill off;')
+		  $('#strId').val(nId);
+		}
+		function previous() {
+		  var nId = $( "#strId" ).val(); //Document.getElementById('strId');
+		  nId--;
+		  Jmol.script(jmolApplet0,'load http://localhost:8090/molfileJsmol/' + nId + '; wireframe 0.3; spacefill off;')
+		  $('#strId').val(nId);
+		}
+		function last() {
+		  Jmol.script(jmolApplet0,'load http://localhost:8090/molfileJsmol/1000; wireframe 0.3; spacefill off;')
+		  $('#strId').val('1000');
+		}
+		function minimize() {
+		  var nId = $( "#strId" ).val();
+		  Jmol.script(jmolApplet0,"load http://localhost:8090/molfileJsmol/" + nId + " FILTER '2D'; wireframe 0.3; spacefill off;")
+		}
+		function select() {
+		  var nId = $( "#strId" ).val();
+		  Jmol.script(jmolApplet0,"load http://localhost:8090/molfileJsmol/" + nId + "; wireframe 0.3; spacefill off;")
+		}
+	</script>		
+</head>
+	<body class="dup-body">
+		<div class="dup-body-wrap">
+			<!-- Start Header Area -->
+			<header class="default-header">
+				<div class="header-wrap">
+					<div class="header-top d-flex justify-content-between align-items-center">
+						<div class="logo">
+							<a href="index.html"><img src="img/logo.png" alt=""></a>
+						</div>
+						<div class="main-menubar d-flex align-items-center">
+							<nav class="hide">
+								<a href="index.html">Home</a>
+								<a href="generic.html">Generic</a>
+								<a href="elements.html">Elements</a>
+							</nav>
+							<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+						</div>
+					</div>
+				</div>
+			</header>
+		<!-- End Header Area -->
+		<!-- Start Banner Area -->
+		<section class="banner-area relative">
+			<div class="overlay overlay-bg"></div>
+			<div class="container">
+				<div class="row fullscreen align-items-center justify-content-between">
+					<div class="col-lg-6 col-md-7 col-sm-8">
+						<div class="banner-content">
+							<h1>Molecule and data</h1>
+							<h2>Str_Id</h2> 
+				<div class="subscription-area">
+					<div class="row justify-content-center">
+						<div class="col-lg-6">
+							<div id="mc_embed_signup">
+								<form target="_blank"  class="subscription relatives">
+									<input id="strId" type="text" name="FirstName" value="1" >
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+							
+							<a href="javascript:first()" class="primary-btn">FIRST<span class="lnr lnr-arrow-right"></span></a>
+							<a href="javascript:next()" class="primary-btn">NEXT<span class="lnr lnr-arrow-right"></span></a>
+							<a href="javascript:previous()" class="primary-btn">PREVIOUS<span class="lnr lnr-arrow-right"></span></a>
+							<a href="javascript:last()" class="primary-btn">LAST<span class="lnr lnr-arrow-right"></span></a>
+							<a href="javascript:minimize()" class="primary-btn">MINIMIZE<span class="lnr lnr-arrow-right"></span></a>
+						</div>
+					</div>
+					<div id="appdiv" class="col-lg-5 col-md-5 col-sm-4">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Banner Area -->
+		<script src="/js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="/js/vendor/bootstrap.min.js"></script>
+		<script src="/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/js/owl.carousel.min.js"></script>
+		<script src="/js/jquery.nice-select.min.js"></script>
+		<script src="/js/jquery.magnific-popup.min.js"></script>
+		<script src="/js/main.js"></script>
+		<script type="text/javascript">
+			$( "#strId" ).change(function() {
+			  var nId = $( "#strId" ).val();
+			  Jmol.script(jmolApplet0,"load http://localhost:8090/molfileJsmol/" + nId + "; wireframe 0.3; spacefill off;")
+			});		
+		</script>
+	</body>
+</html>
